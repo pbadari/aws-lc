@@ -1286,9 +1286,9 @@ int BN_mod_exp_mont_consttime_x2(BIGNUM *rr1, const BIGNUM *a1, const BIGNUM *p1
 
 #ifdef RSAZ_ENABLED
 err:
-    if (mont2 == NULL)
+    if (mont2)
         BN_MONT_CTX_free(mont2);
-    if (mont1 == NULL)
+    if (mont1)
         BN_MONT_CTX_free(mont1);
 #endif
 

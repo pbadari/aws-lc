@@ -382,6 +382,7 @@ int RSAZ_mod_exp_x2_ifma256(BN_ULONG *out,
      *   table[0] = mont(x^0) = mont(1)
      *   table[1] = mont(x^1) = mont(x)
      */
+    memset(red_X, 0, 2 * red_digits * sizeof(BN_ULONG));
     red_X[0 * red_digits] = 1;
     red_X[1 * red_digits] = 1;
     damm(&red_table[0 * 2 * red_digits], (const BN_ULONG*)red_X, rr, m, k0);
